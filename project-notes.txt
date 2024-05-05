@@ -1,0 +1,31 @@
+PASSOS
+.pegar todos os números existentes no array.
+.guardar o maior número em uma variável.
+.Usar o maior número como limite do for.
+.Ter um array que tenha os números inseridos.
+
+
+
+TESTES
+[-] Array proposto.
+[-] Array com outro número maior que o original.
+[-] Array com número repetido (deve não checar números repetidos).
+[-] Array com número negativo.
+[-] Não-números (ex.: letra) no array.
+[-] Não-números (ex.: array com números) no array.
+
+
+
+POSSÍVEIS MELHORIAS
+[-] Inserir números faltantes de forma ordenada. (Até que consegui fazer, vide ordered_append_miss_to_main, mas não faz sentido manter isso pois a lista pode vir naturalmente bagunçada, eu só estaria inserindo alguns valores ordenados no meio da lista bagunçada.)
+
+
+
+REFERÊNCIAS
+
+
+
+NOTAS
+tentar fazer o mesmo exercício, mas com classe. Vamos ver o que vira.
+
+Set-ExecutionPolicy Unrestricted -Scope Process
