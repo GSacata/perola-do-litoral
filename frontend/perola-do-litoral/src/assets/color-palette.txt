@@ -1,0 +1,25 @@
+PÉROLA DO LITORAL LOGO
+concha : ffeaff
+concha-lineart : d0bad0
+letreiro : faf6ac
+letreiro-sombra : dac98a
+mar : 6fc8f4
+mar-lineart : 58a0c3
+mar-luz : c9edff
+perola-lineart : c987c7
+perola-luz : ffe0ff
+perola-preench : ffbdfd
+
+
+MADREPÉROLA LOGO
+areia : f4e592
+areia-lineart : b1a668
+areia-sombra : d7c97d
+concha : f6d3b8
+concha-lineart : c19b7e
+concha-sombra : deb89b
+letreiro : f3931d
+letreiro-sombra : b1492a 
+perola-lineart : c987c7
+perola-luz : ffe0ff
+perola-preench : ffbdfd 
