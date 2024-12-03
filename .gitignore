@@ -1,5 +1,6 @@
 node_modules
 .angular
+*.code-workspace
 
 *.kra
 *.kra~
