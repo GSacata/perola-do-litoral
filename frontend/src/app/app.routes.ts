@@ -5,6 +5,7 @@ import { PerolaDoLitoralComponent } from './perola-do-litoral/perola-do-litoral.
 import { MadreperolaComponent } from './madreperola/madreperola.component';
 import { BuffetComponent } from './buffet/buffet.component';
 import { AdminComponent } from './admin/admin.component';
+import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -13,4 +14,5 @@ export const routes: Routes = [
     {path: 'bar', component: MadreperolaComponent},
     {path: 'buffet', component: BuffetComponent},
     {path: 'admin', component: AdminComponent},
+    {path: 'sobre-nos', component: SobreNosComponent},
 ];
