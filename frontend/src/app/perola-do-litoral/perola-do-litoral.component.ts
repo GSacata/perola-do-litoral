@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './perola-do-litoral.component.html',
-  styleUrl: './perola-do-litoral.component.css'
+  styleUrl: './perola-do-litoral.component.scss'
 })
 export class PerolaDoLitoralComponent {
 

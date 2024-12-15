@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './buffet.component.html',
-  styleUrl: './buffet.component.css'
+  styleUrl: './buffet.component.scss'
 })
 export class BuffetComponent {
 

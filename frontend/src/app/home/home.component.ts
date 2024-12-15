@@ -12,7 +12,7 @@ import { FooterComponent } from "../footer/footer.component"
     FooterComponent
 ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss'
 })
 
 export class HomeComponent {

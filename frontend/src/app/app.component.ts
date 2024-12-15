@@ -12,7 +12,7 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent, FooterComponent
 ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'perola-do-litoral';

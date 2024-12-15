@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './madreperola.component.html',
-  styleUrl: './madreperola.component.css'
+  styleUrl: './madreperola.component.scss'
 })
 export class MadreperolaComponent {
 
