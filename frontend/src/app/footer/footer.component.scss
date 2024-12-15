@@ -1,0 +1,16 @@
+@import "../../styles.scss";
+
+.footer {
+    width: 100%;
+    background-color: $madrep-primary-color;
+    display: flex;
+
+    &-column {
+        width: 50%;
+        
+        a {
+            padding: 0 1rem;
+        }
+    }
+
+}

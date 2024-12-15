@@ -1,0 +1,17 @@
+@import "../../styles.scss";
+
+.header {
+    width: 100%;
+    background-color: $madrep-primary-color;
+    display: flex;
+
+    &-menu {
+        display: flex;
+        margin-left: auto;
+        flex-direction: row;
+    }
+
+    a {
+        padding: 0 1rem;
+    }
+}
