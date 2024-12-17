@@ -1,7 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 $perola-primary-color: #71c4dd;
+$perola-primary-color-darker: #398da7;
 $madrep-primary-color: #eca554;
+$madrep-primary-color-darker: #b97b34;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p, a, div, li {
+    line-height: 1.3;
+    margin: 0;
+    padding: 0;
+}
 
 .another-test-class {
     background-color: red;
+}
+
+.page {
+    min-height: 800px;
+}
+
+.banner {
+    width: 1200px;
+    height: 400px;
+    background-color: aquamarine;
 }
