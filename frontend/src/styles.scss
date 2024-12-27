@@ -4,7 +4,7 @@ $perola-primary-color-darker: #398da7;
 $madrep-primary-color: #eca554;
 $madrep-primary-color-darker: #b97b34;
 
-body {
+body, section {
     margin: 0;
     padding: 0;
 }
@@ -19,12 +19,12 @@ p, a, div, li {
     background-color: red;
 }
 
-.page {
-    min-height: 800px;
-}
+// .page {
+//     min-height: 800px; // DEV-PLACEHOLDER
+// }
 
 .banner {
-    width: 1200px;
-    height: 400px;
+    width: 100%;
+    height: 400px; // DEV-PLACEHOLDER
     background-color: aquamarine;
 }
