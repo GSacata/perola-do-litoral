@@ -1,9 +1,10 @@
 @import "../../styles.scss";
 
 .header {
-    width: 100%;
+    // width: 100%;
     background-color: $madrep-primary-color;
     display: flex;
+    padding: 1rem;
 
     &-menu {
         display: flex;
