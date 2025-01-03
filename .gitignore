@@ -1,6 +1,7 @@
 node_modules
 .angular
 *.code-workspace
+venv
 
 *.kra
 *.kra~
