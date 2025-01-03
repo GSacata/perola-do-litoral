@@ -1,9 +1,16 @@
-node_modules
+# cache
+__pycache__
 .angular
-*.code-workspace
+
+# directories
+node_modules
 venv
+
+# files
 db.sqlite3
 
+# file extensions
 *.kra
 *.kra~
 *.png~
+*.code-workspace
