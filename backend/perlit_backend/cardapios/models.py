@@ -12,6 +12,6 @@ class Prato(models.Model):
 
 class CardapioRestaurante(models.Model):
     dish_collection = models.ManyToManyField(Prato, blank=True)
-    menu_name = models.CharField(max_length=50, null=True)
-    notes = models.TextField()
+    menu_name = models.CharField(max_length=50, blank=True, default="")
+    notes = models.TextField(blank=True)
 
