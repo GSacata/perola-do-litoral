@@ -6,6 +6,14 @@
         <div>
             <h1>Pérola do Litoral</h1>
             <h2>Cardápio do dia</h2>
+            <div *ngFor="let entry of menu">
+                <p>Menu: {{entry.menu_name}}</p>
+                <div (load)="fillThisMenu(entry.dish_collection)">
+                    <ul *ngFor="let item of entry.dish_collection">
+                        <li>{{item}}</li>
+                    </ul>
+                </div>
+            </div>
             <div>
                 Placeholder.
                 Vou criar uma tabela que pode ser atualizada apenas pela parte administrativa.
