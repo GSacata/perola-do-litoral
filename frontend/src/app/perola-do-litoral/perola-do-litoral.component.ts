@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PerlitServiceService } from '../services/perlit-service.service';
 import { Observable } from 'rxjs';
 import { CardapioRestauranteModel } from '../interfaces/CardapioRestaurante.interface';
@@ -13,7 +13,7 @@ import { PratoModel } from '../interfaces/Prato.interface';
   styleUrl: './perola-do-litoral.component.scss',
 })
 
-export class PerolaDoLitoralComponent {
+export class PerolaDoLitoralComponent implements OnInit {
   menu: CardapioRestauranteModel = {id: 0, dish_collection: [], menu_name: "", notes: ""}
   menuList: CardapioRestauranteModel[] = [];
   dish: PratoModel = {id: 0, dish_name: "", has_vegetarian: false, veget_variety: "", has_vegan: false, vegan_variety: "", overview: "", warning: ""};
@@ -70,44 +70,19 @@ export class PerolaDoLitoralComponent {
     })
   }
 
-  // fillThisMenu(dishId: number) {
-  //   for (let item of this.dishList) {
-  //     if (dishId == item.id) {
-  //       this.menuDishes.push(item);
-  //     }
-  //   }
-  //   console.log(this.menuDishes)
-  //   this.menuDishes = [];
-  // }
-
-  // fillThisMenu(dishIdList: number[]) {
-  //   console.log("chamou fillThisMenu")
-  //   this.filteredDishes = this.dishList.filter(obj => dishIdList.includes(obj.id))
-  //   console.log("this.filteredDishes ", this.filteredDishes);
-  //   // for (let dishId of dishIdList) {
-  //   //   for (let item of this.dishList) {
-  //   //     if (dishId == item.id) {
-  //   //       this.menuDishes.push(item);
-  //   //     }
-  //   //   }
-  //   //   console.log(this.menuDishes)
-  //     // this.menuDishes = [];
-  //   // }
-  // }
-
   async fillThisMenu(): Promise<PratoModel[]> {
     return new Promise(() => {
       console.log("Rodou fillThisMenu")
-      this.filteredDishes = this.dishList.filter(obj => this.menu.dish_collection.includes(obj.id))
+      if (this.menu) {
+        this.filteredDishes = this.dishList.filter(obj => this.menu.dish_collection.includes(obj.id))
+      }
       console.log("this.filteredDishes: ", this.filteredDishes) // DEV-ERASE
     })
   }
 
-
+  constructor (private perlitService: PerlitServiceService) {}
   
-
-  constructor (private perlitService: PerlitServiceService) {
-    // this.getAllMenus()
+  ngOnInit(): void {
     this.getOneMenu(2) // DEV-IMPLEMENT
     this.getAllDishes();
   }

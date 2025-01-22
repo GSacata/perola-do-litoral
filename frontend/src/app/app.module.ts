@@ -1,8 +1,6 @@
-// gerado dentro de ./src/app
-
 import { NgModule } from "@angular/core";
 import { NgIf, NgFor } from "@angular/common";
-import { FormsModule } from "@angular/forms"; // imports ngModel, to bem used on todolist.component.ts
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { PerlitServiceService } from "./services/perlit-service.service";
 
