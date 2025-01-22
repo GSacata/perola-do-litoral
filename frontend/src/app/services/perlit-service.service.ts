@@ -20,6 +20,10 @@ export class PerlitServiceService {
   getAllRestaurantDishes(): Observable<any> {
     return this.http.get((this.base_url + "/cardapios/pratos"), {headers: this.headers})
   }
+
+  getOneRestaurantMenu(id: number): Observable<any> {
+    return this.http.get((this.base_url + `/cardapios/cardapios-rest/${id}`), {headers: this.headers})
+  }
   
   getOneRestaurantDish(id: number): Observable<any> {
     return this.http.get((this.base_url + `/cardapios/pratos/${id}`), {headers: this.headers})

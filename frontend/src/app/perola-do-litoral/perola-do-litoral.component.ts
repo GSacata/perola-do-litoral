@@ -14,15 +14,54 @@ import { PratoModel } from '../interfaces/Prato.interface';
 })
 
 export class PerolaDoLitoralComponent {
-  menu: CardapioRestauranteModel[] = [];
-  // dish: PratoModel = {id: 0, dish_name: "", has_vegetarian: false, veget_variety: "", has_vegan: false, vegan_variety: "", overview: "", warning: ""};
-  dishes: PratoModel[] = []
+  menu: CardapioRestauranteModel = {id: 0, dish_collection: [], menu_name: "", notes: ""}
+  menuList: CardapioRestauranteModel[] = [];
+  dish: PratoModel = {id: 0, dish_name: "", has_vegetarian: false, veget_variety: "", has_vegan: false, vegan_variety: "", overview: "", warning: ""};
+  dishList: PratoModel[] = []
   filteredDishes: PratoModel[] = [];
 
   getAllMenus() {
     this.perlitService.getAllRestaurantMenus().subscribe({
       next: (data) => {
+        this.menuList = data
+      },
+      error: (err) => {
+        console.log(err)
+      },
+      complete: () => {console.log("Getting all menus completed")}
+    })
+  }
+  
+  getOneMenu(id: number) {
+    this.perlitService.getOneRestaurantMenu(id).subscribe({
+      next: (data) => {
         this.menu = data
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {console.log(`Getting menu ${id} completed`)}
+    })
+  }
+
+  getAllDishes() {
+    this.perlitService.getAllRestaurantDishes().subscribe({
+      next: (data) => {
+        this.dishList = data
+        console.log("this.dishList: ", this.dishList) // DEV-ERASE
+        this.fillThisMenu()
+      },
+      error: (err) => {
+        console.log(err)
+      },
+      complete: () => {console.log("Getting all dishList completed")}
+    })
+  }
+
+  getOneDish(id: number) {
+    this.perlitService.getOneRestaurantDish(id).subscribe({
+      next: (data) => {
+        this.dish = data
       },
       error: (err) => {
         console.log(err)
@@ -31,21 +70,8 @@ export class PerolaDoLitoralComponent {
     })
   }
 
-  getAllDishes() {
-    this.perlitService.getAllRestaurantDishes().subscribe({
-      next: (data) => {
-        this.dishes = data
-        console.log("this.dishes: ", this.dishes) // DEV-ERASE
-      },
-      error: (err) => {
-        console.log(err)
-      },
-      complete: () => {console.log("Getting all dishes completed")}
-    })
-  }
-
   // fillThisMenu(dishId: number) {
-  //   for (let item of this.dishes) {
+  //   for (let item of this.dishList) {
   //     if (dishId == item.id) {
   //       this.menuDishes.push(item);
   //     }
@@ -54,36 +80,35 @@ export class PerolaDoLitoralComponent {
   //   this.menuDishes = [];
   // }
 
-  fillThisMenu(dishIdList: number[]) {
-    console.log("chamou fillThisMenu")
-    this.filteredDishes = this.dishes.filter(obj => dishIdList.includes(obj.id))
-    console.log("this.filteredDishes ", this.filteredDishes);
-    // for (let dishId of dishIdList) {
-    //   for (let item of this.dishes) {
-    //     if (dishId == item.id) {
-    //       this.menuDishes.push(item);
-    //     }
-    //   }
-    //   console.log(this.menuDishes)
-      // this.menuDishes = [];
-    // }
+  // fillThisMenu(dishIdList: number[]) {
+  //   console.log("chamou fillThisMenu")
+  //   this.filteredDishes = this.dishList.filter(obj => dishIdList.includes(obj.id))
+  //   console.log("this.filteredDishes ", this.filteredDishes);
+  //   // for (let dishId of dishIdList) {
+  //   //   for (let item of this.dishList) {
+  //   //     if (dishId == item.id) {
+  //   //       this.menuDishes.push(item);
+  //   //     }
+  //   //   }
+  //   //   console.log(this.menuDishes)
+  //     // this.menuDishes = [];
+  //   // }
+  // }
+
+  async fillThisMenu(): Promise<PratoModel[]> {
+    return new Promise(() => {
+      console.log("Rodou fillThisMenu")
+      this.filteredDishes = this.dishList.filter(obj => this.menu.dish_collection.includes(obj.id))
+      console.log("this.filteredDishes: ", this.filteredDishes) // DEV-ERASE
+    })
   }
 
 
-  // getOneDish(id: number) {
-  //   this.perlitService.getOneRestaurantDish(id).subscribe({
-  //     next: (data) => {
-  //       this.dish = data
-  //     },
-  //     error: (err) => {
-  //       console.log(err)
-  //     },
-  //     complete: () => {console.log("Getting all menus completed")}
-  //   })
-  // }
+  
 
   constructor (private perlitService: PerlitServiceService) {
-    this.getAllMenus()
-    this.getAllDishes()
+    // this.getAllMenus()
+    this.getOneMenu(2) // DEV-IMPLEMENT
+    this.getAllDishes();
   }
 }
